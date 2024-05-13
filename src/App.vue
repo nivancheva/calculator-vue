@@ -30,7 +30,11 @@ const buttons = [
 <template>
 
 <div class="calculator">
-  <div class="screen">{{ display }}</div>
+  <div class="screen">
+    <div class="pevious-operand">{{ display }}</div>
+    <div class="current-operand">{{ display }}</div>
+  </div>
+  
   <div class="buttons">
     <button :class="{ 'bg-red' : button.label === '='}" v-for="button in buttons" :key="button.value" @click="handleButtonClick(button)">
       {{ button.label }}
@@ -62,17 +66,17 @@ const buttons = [
   border-radius: .5rem;
   margin-bottom: 10px;
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.75rem;
 }
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: .5rem;
+  grid-gap: .75rem;
 }
 
 button {
   width: 100%;
-  height: 80%;
   background-color: #fff;
   color: rgb(87, 87, 87);
   border: 2px solid rgb(234, 229, 223);
@@ -89,6 +93,14 @@ button {
 .bg-red {
   background-color: rgb(248, 106, 111);
   color: white;
+}
+
+.bg-red:hover {
+  background-color: rgb(252, 76, 82);
+}
+
+.bg-red:active {
+  background-color: rgb(250, 50, 57);
 }
 
 button:hover {
