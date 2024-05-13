@@ -1,27 +1,30 @@
 <script setup>
 import { ref, computed } from "vue";
 
+const operations = ["+", "-", "*", "/"];
+const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 const currentOperant = ref(0);
-const previousOperand = ref(0);
+const previousOperand = computed(() => currentOperant.value);
 const operation = ref(null);
 const buttons = [
   { label: '7', value: '7' },
   { label: '8', value: '8' },
   { label: '9', value: '9' },
-  { label: '÷', value: '/' },
+  { label: '\u00F7', value: '/' },
   { label: '4', value: '4' },
   { label: '5', value: '5' },
   { label: '6', value: '6' },
-  { label: '×', value: '*' },
+  { label: '\u00d7', value: '*' },
   { label: '1', value: '1' },
   { label: '2', value: '2' },
   { label: '3', value: '3' },
   { label: '-', value: '-' },
   { label: '0', value: '0' },
-  { label: '.', value: '.' },
+  { label: '\u2022', value: '.' },
   { label: '=', value: '=' },
   { label: '+', value: '+' },
 ]
+
 
 
 </script>
@@ -45,8 +48,7 @@ const buttons = [
 
 <style scoped>
 .calculator {
-  width: 450px;
-  max-width: 80%;
+  width: 400px;
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,7 +59,7 @@ const buttons = [
 .screen {
   width: 100%;
   background-color: rgb(188, 208, 192);
-  border-bottom: 3px solid rgb(156, 171, 159);
+  border-bottom: 5px solid rgb(156, 171, 159);
   border-radius: .5rem;
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.75rem;
@@ -66,7 +68,7 @@ const buttons = [
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
-  padding: .75rem;
+  padding: .5rem;
 
   word-wrap: break-word;
   word-break: break-all;
@@ -96,7 +98,7 @@ button {
   cursor: pointer;
   transition: background-color 0.2s ease;
 
-  font-weight: bold;
+  font-weight:bold;
   font-size: 2.5rem;
   display: grid;
   place-content: center;
@@ -123,6 +125,15 @@ button:hover {
 button:active {
   background-color: #d0d0d0;
 }
+
+/* mobile */
+@media (max-width:740px) {
+  .calculator {
+     max-width: 80%;
+  }
   
+}
+
+ 
   
 </style>
