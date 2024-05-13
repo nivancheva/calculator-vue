@@ -1,10 +1,9 @@
 <script setup>
 import { ref, computed } from "vue";
 
-const display = ref(0);
-const currentInput = ref(0);
-const previousInput = ref(null);
-const operator = ref(null);
+const currentOperant = ref(0);
+const previousOperand = ref(0);
+const operation = ref(null);
 const buttons = [
   { label: '7', value: '7' },
   { label: '8', value: '8' },
@@ -31,8 +30,8 @@ const buttons = [
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ display }}</div>
-    <div class="current-operand">{{ display }}</div>
+    <div class="pevious-operand">{{ previousOperand }} {{ operation }}</div>
+    <div class="current-operand">{{ currentOperant }}</div>
   </div>
   
   <div class="buttons">
@@ -75,7 +74,7 @@ const buttons = [
 
 .pevious-operand {
   opacity: .7;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .current-operand {
