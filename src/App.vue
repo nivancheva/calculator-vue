@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const display = ref(0);
 const currentInput = ref(0);
@@ -9,11 +9,11 @@ const buttons = [
   { label: '7', value: '7' },
   { label: '8', value: '8' },
   { label: '9', value: '9' },
-  { label: '/', value: '/' },
+  { label: '÷', value: '/' },
   { label: '4', value: '4' },
   { label: '5', value: '5' },
   { label: '6', value: '6' },
-  { label: '*', value: '*' },
+  { label: '×', value: '*' },
   { label: '1', value: '1' },
   { label: '2', value: '2' },
   { label: '3', value: '3' },
@@ -32,7 +32,7 @@ const buttons = [
 <div class="calculator">
   <div class="screen">{{ display }}</div>
   <div class="buttons">
-    <button v-for="button in buttons" :key="button.value" @click="handleButtonClick(button)">
+    <button :class="{ 'bg-red' : button.label === '='}" v-for="button in buttons" :key="button.value" @click="handleButtonClick(button)">
       {{ button.label }}
     </button>
   </div>
@@ -42,7 +42,7 @@ const buttons = [
 
 <style scoped>
 .calculator {
-  width: 400px;
+  width: 450px;
   max-width: 80%;
   border-radius: 1rem;
   padding: 1.5rem;
@@ -67,12 +67,12 @@ const buttons = [
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: .5rem;
 }
 
 button {
   width: 100%;
-  height: 40px;
+  height: 80%;
   background-color: #fff;
   color: rgb(87, 87, 87);
   border: 2px solid rgb(234, 229, 223);
@@ -81,7 +81,7 @@ button {
   transition: background-color 0.2s ease;
 
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
   display: grid;
   place-content: center;
 }
