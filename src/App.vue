@@ -57,16 +57,29 @@ const buttons = [
   
 .screen {
   width: 100%;
-  height: 60px;
   background-color: rgb(188, 208, 192);
   border-bottom: 3px solid rgb(156, 171, 159);
-  text-align: right;
-  padding: 5px;
-  font-size: 18px;
   border-radius: .5rem;
-  margin-bottom: 10px;
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.75rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: .75rem;
+
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.pevious-operand {
+  opacity: .7;
+  font-size: 1.5rem;
+}
+
+.current-operand {
+  font-size: 2.5rem;
 }
 
 .buttons {
