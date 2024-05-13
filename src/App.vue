@@ -25,7 +25,9 @@ const buttons = [
   { label: '+', value: '+' },
 ]
 
-
+function handleButtonClick(button) {
+  currentOperant.value = (button.value);
+}
 
 </script>
 
