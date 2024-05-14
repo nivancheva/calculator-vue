@@ -3,8 +3,8 @@ import { ref, computed } from "vue";
 
 const operations = ["+", "-", "*", "/"];
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
-const currentOperant = ref(0);
-const previousOperand = computed(() => currentOperant.value);
+const currentOperand = ref('');
+const previousOperand = computed(() => currentOperand.value);
 const operation = ref(null);
 const buttons = [
   { label: '7', value: '7' },
@@ -26,8 +26,14 @@ const buttons = [
 ]
 
 function handleButtonClick(button) {
-  currentOperant.value = (button.value);
+  currentOperand.value += (button.value);
+
+
+  
+
 }
+
+
 
 </script>
 
@@ -35,8 +41,8 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ previousOperand }} {{ operation }}</div>
-    <div class="current-operand">{{ currentOperant }}</div>
+    <div class="pevious-operand">{{ previousOperand || '0' }} {{ operation }}</div>
+    <div class="current-operand">{{ currentOperand || '0'}}</div>
   </div>
   
   <div class="buttons">
@@ -56,6 +62,7 @@ function handleButtonClick(button) {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   background-color: rgb(87, 87, 87);
   border: 5px solid rgb(66, 66, 66);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
   
 .screen {
