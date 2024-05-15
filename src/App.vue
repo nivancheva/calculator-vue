@@ -27,7 +27,7 @@ const buttons = [
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
-    current.value =''
+    
     current.value += button.value
     console.log("Hi 1")
 
@@ -67,7 +67,7 @@ function handleButtonClick(button) {
 
   if (button.value === '=') {
     operand.value =''
-    current.value = result.value;
+    current.value = result.value.toFixed(5);
     result.value = ''
     
   }
@@ -80,7 +80,7 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div  class="pevious-operand">{{ result || ''}} {{ operand }}</div>
+    <div class="pevious-operand">{{ result || ''}} {{ operand }}</div>
     <div class="current-operand">{{ current || 0}}</div>
   
   </div>
