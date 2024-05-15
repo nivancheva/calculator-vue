@@ -32,16 +32,16 @@ function handleButtonClick(button) {
   }
   
   if (button.value === '+') {
-    switch(operand.value) {
-      case '+':
-        result.value += parseFloat(current.value);
-      case '-':
-        result.value -= parseFloat(current.value);
-      case '*':
-        result.value *= result.value * parseFloat(current.value);
-      case '/':
-        result.value = result.value / parseFloat(current.value);
-    }
+    // switch(operand.value) {
+    //   case '+':
+    //     result.value += parseFloat(current.value);
+    //   case '-':
+    //     result.value -= parseFloat(current.value);
+    //   case '*':
+    //     result.value *= result.value * parseFloat(current.value);
+    //   case '/':
+    //     result.value = result.value / parseFloat(current.value);
+    // }
 
     result.value += parseFloat(current.value);
     
@@ -70,7 +70,7 @@ function handleButtonClick(button) {
 <div class="calculator">
   <div class="screen">
     <div class="pevious-operand">{{ result || '0' }} {{ operand }}</div>
-    <div class="current-operand">{{ current || '0'}}</div>
+    <div class="current-operand">{{ current || result}}</div>
   
   </div>
   
