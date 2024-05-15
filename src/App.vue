@@ -1,34 +1,62 @@
 <script setup>
 import { ref, computed } from "vue";
 
-const operations = ["+", "-", "*", "/"];
-const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
-const currentOperand = ref('');
-const previousOperand = computed(() => currentOperand.value);
-const operation = ref(null);
+const current = ref('');
+const operand = ref('');
+const result = ref(0);
+
 const buttons = [
-  { label: '7', value: '7' },
-  { label: '8', value: '8' },
-  { label: '9', value: '9' },
+  { label: '7', value: 7 },
+  { label: '8', value: 8 },
+  { label: '9', value: 9 },
   { label: '\u00F7', value: '/' },
-  { label: '4', value: '4' },
-  { label: '5', value: '5' },
-  { label: '6', value: '6' },
+  { label: '4', value: 4 },
+  { label: '5', value: 5 },
+  { label: '6', value: 6 },
   { label: '\u00d7', value: '*' },
-  { label: '1', value: '1' },
-  { label: '2', value: '2' },
-  { label: '3', value: '3' },
+  { label: '1', value: 1 },
+  { label: '2', value: 2 },
+  { label: '3', value: 3 },
   { label: '-', value: '-' },
-  { label: '0', value: '0' },
+  { label: '0', value: 0 },
   { label: '\u2022', value: '.' },
   { label: '=', value: '=' },
   { label: '+', value: '+' },
 ]
 
 function handleButtonClick(button) {
-  currentOperand.value += (button.value);
 
+  if (typeof button.value  === "number") {
+    current.value += button.value;
+   
+  }
+  
+  if (button.value === '+') {
+    switch(operand.value) {
+      case '+':
+        result.value += parseFloat(current.value);
+      case '-':
+        result.value -= parseFloat(current.value);
+      case '*':
+        result.value *= result.value * parseFloat(current.value);
+      case '/':
+        result.value = result.value / parseFloat(current.value);
+    }
 
+    result.value += parseFloat(current.value);
+    
+    current.value = "";
+
+  // } else if (button.value === '-') {
+    
+  //   result.value = firstNumber.value - secondNumber.value;
+  // } else if (button.value === '*') {
+    
+  //   result.value = firstNumber.value * secondNumber.value;
+  // } else if (button.value === '/') {
+    
+  //   result.value = firstNumber.value / secondNumber.value;
+  }
   
 
 }
@@ -41,8 +69,9 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ previousOperand || '0' }} {{ operation }}</div>
-    <div class="current-operand">{{ currentOperand || '0'}}</div>
+    <div class="pevious-operand">{{ result || '0' }} {{ operation }}</div>
+    <div class="current-operand">{{ current || '0'}}</div>
+  
   </div>
   
   <div class="buttons">
