@@ -29,39 +29,37 @@ function handleButtonClick(button) {
   if (typeof button.value  === "number") {
     current.value += button.value;
    
+  } else {
+    operand.value = button.value
+
+    switch(operand.value) {
+      case '+':
+        result.value += parseFloat(current.value); 
+        current.value = "";
+        break;
+      case '-':
+        console.log('-')
+        result.value -= parseFloat(current.value)
+        current.value = "";
+        break;
+      case '*':
+        console.log('*')
+        result.value *= parseFloat(current.value)
+        current.value = "";
+        break;
+      case '/':
+        console.log('/')
+        if(current.value != 0){
+          result.value /= parseFloat(current.value)
+          current.value = "";
+        } else {
+          alert('Cannot divide by zero')
+        }
+        break;
+    }
   }
   
-  if (button.value === '+') {
-    // switch(operand.value) {
-    //   case '+':
-    //     result.value += parseFloat(current.value);
-    //   case '-':
-    //     result.value -= parseFloat(current.value);
-    //   case '*':
-    //     result.value *= result.value * parseFloat(current.value);
-    //   case '/':
-    //     result.value = result.value / parseFloat(current.value);
-    // }
-
-    result.value += parseFloat(current.value);
-    
-    current.value = "";
-
-  // } else if (button.value === '-') {
-    
-  //   result.value -= parseFloat(current.value);
-  // } else if (button.value === '*') {
-    
-  //   result.value *= parseFloat(current.value);
-  // } else if (button.value === '/') {
-    
-  //   result.value /= parseFloat(current.value);
-  }
-  
-
 }
-
-
 
 </script>
 
