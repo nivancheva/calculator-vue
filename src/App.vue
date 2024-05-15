@@ -69,7 +69,7 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ result || '0' }} {{ operation }}</div>
+    <div class="pevious-operand">{{ result || '0' }} {{ operand }}</div>
     <div class="current-operand">{{ current || '0'}}</div>
   
   </div>
