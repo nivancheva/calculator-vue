@@ -26,7 +26,7 @@ const buttons = [
 
 function handleButtonClick(button) {
 
-  if (typeof button.value  === "number") {
+  if (typeof button.value  === "number" || button.value === '.') {
     current.value += button.value
     console.log("Hi 1")
 
