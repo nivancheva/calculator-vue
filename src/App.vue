@@ -72,7 +72,7 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ result || ''}} {{ operand }} {{current || 0}}</div>
+    <div class="pevious-operand">{{ result || ''}} {{ operand }}</div>
     <div class="current-operand">{{ current || 0}}</div>
   
   </div>
@@ -104,12 +104,13 @@ function handleButtonClick(button) {
   border-radius: .5rem;
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.75rem;
+  position: relative;
 
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
-  padding: .5rem;
+  padding: 2.5rem .5rem .5rem;
 
   word-wrap: break-word;
   word-break: break-all;
@@ -118,6 +119,9 @@ function handleButtonClick(button) {
 .pevious-operand {
   opacity: .7;
   font-size: 1rem;
+  position: absolute;
+  right: .5rem;
+  top: 1rem;
 }
 
 .current-operand {
