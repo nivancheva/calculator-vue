@@ -27,30 +27,29 @@ const buttons = [
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number") {
-    current.value += button.value;
-   
+    current.value += button.value
+    console.log("Hi 1")
+
   } else {
-    
-    
+    console.log("Hi 2")
+
     switch(operand.value) {
+
       case '+':
-        operand.value = button.value
+        console.log("Hi 3")
         result.value += parseFloat(current.value); 
         current.value = "";
         break;
       case '-':
-        operand.value = button.value
+        console.log("Hi 4")
         result.value -= parseFloat(current.value)
         current.value = "";
-        operand.value = '-'
         break;
       case '*':
-        operand.value = button.value
         result.value *= parseFloat(current.value)
         current.value = "";
         break;
       case '/':
-        operand.value = button.value
         if(current.value != 0){
           result.value /= parseFloat(current.value)
           current.value = "";
@@ -59,10 +58,12 @@ function handleButtonClick(button) {
         }
         break;
     }
-
-    operand.value = button.value
-  }
   
+ console.log("Hi 5")
+  operand.value = button.value
+    
+  }
+   
 }
 
 </script>
@@ -71,8 +72,8 @@ function handleButtonClick(button) {
 
 <div class="calculator">
   <div class="screen">
-    <div class="pevious-operand">{{ result }} {{ operand }} {{current}}</div>
-    <div class="current-operand">{{ current || '0'}}</div>
+    <div class="pevious-operand">{{ result || ''}} {{ operand }} {{current || 0}}</div>
+    <div class="current-operand">{{ current || 0}}</div>
   
   </div>
   
