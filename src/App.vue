@@ -49,13 +49,13 @@ function handleButtonClick(button) {
 
   // } else if (button.value === '-') {
     
-  //   result.value = firstNumber.value - secondNumber.value;
+  //   result.value -= parseFloat(current.value);
   // } else if (button.value === '*') {
     
-  //   result.value = firstNumber.value * secondNumber.value;
+  //   result.value *= parseFloat(current.value);
   // } else if (button.value === '/') {
     
-  //   result.value = firstNumber.value / secondNumber.value;
+  //   result.value /= parseFloat(current.value);
   }
   
 
