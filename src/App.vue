@@ -71,8 +71,7 @@ function handleButtonClick(button) {
     operand.value = '';
     current.value = result.value;
     result.value = '' ;
-  } 
- 
+  }  
    
 }
 
