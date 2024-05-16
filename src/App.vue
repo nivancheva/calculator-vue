@@ -4,7 +4,7 @@ import { ref, computed } from "vue";
 const current = ref('');
 const operand = ref('');
 const result = ref(0);
-const calculated = ref(true);
+const calculated = ref(false);
 
 const buttons = [
   { label: '7', value: 7 },
@@ -29,9 +29,7 @@ function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
     if (calculated.value== true ) {
-      current.value = ''
-      
-      
+      current.value = ''  
     }
     calculated.value = false;
     current.value += button.value;
