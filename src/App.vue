@@ -28,15 +28,10 @@ function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
 
-    current.value += button.value
-    
-    console.log("1 find number")
-    
+    current.value += button.value   
 
   } else {
    
-    console.log("2 time for..")
-
     if (operand.value == '') {
       result.value = parseFloat(current.value);
       current.value = ''
@@ -45,22 +40,18 @@ function handleButtonClick(button) {
     switch(operand.value) {
 
       case '+':
-        console.log("3 PLUS")
         result.value += parseFloat(current.value); 
         current.value = ''
         break;
       case '-':
-        console.log("MINUS")
         result.value -= parseFloat(current.value)
         current.value = "";
         break;
       case '*':
-        console.log("MULTIPLY")
         result.value *= parseFloat(current.value)
         current.value = "";
         break;
       case '/':
-        console.log("DEVIDE")
         if(current.value != 0){
           result.value /= parseFloat(current.value)
           current.value = "";
@@ -71,7 +62,6 @@ function handleButtonClick(button) {
     }
 
     operand.value = button.value
-    console.log("4 select operant")
     
   }
 
