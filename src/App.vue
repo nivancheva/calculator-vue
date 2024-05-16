@@ -27,11 +27,11 @@ const buttons = [
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
-
-    current.value += button.value   
+    
+    current.value += button.value;
 
   } else {
-   
+
     if (operand.value == '') {
       result.value = parseFloat(current.value);
       current.value = ''
@@ -41,7 +41,7 @@ function handleButtonClick(button) {
 
       case '+':
         result.value += parseFloat(current.value); 
-        current.value = ''
+        current.value = '';
         break;
       case '-':
         result.value -= parseFloat(current.value)
@@ -56,20 +56,23 @@ function handleButtonClick(button) {
           result.value /= parseFloat(current.value)
           current.value = "";
         } else {
-          alert('Cannot divide by zero')
+          alert('Cannot divide by zero');
+          current.value = "";
+          return;
         }
         break;
     }
 
-    operand.value = button.value
+    operand.value = button.value;
     
   }
 
   if (button.value === '=') {
-    operand.value =''
+    operand.value = '';
     current.value = result.value;
-    result.value = ''   
-  }
+    result.value = '' ;
+  } 
+ 
    
 }
 
