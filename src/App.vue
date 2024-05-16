@@ -27,30 +27,40 @@ const buttons = [
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
-    
+
     current.value += button.value
-    console.log("Hi 1")
+    
+    console.log("1 find number")
+    
 
   } else {
-    console.log("Hi 2")
+   
+    console.log("2 time for..")
 
+    if (operand.value == '') {
+      result.value = parseFloat(current.value);
+      current.value = ''
+    }
+   
     switch(operand.value) {
 
       case '+':
-        console.log("Hi 3")
+        console.log("3 PLUS")
         result.value += parseFloat(current.value); 
-        current.value = "";
+        current.value = ''
         break;
       case '-':
-        console.log("Hi 4")
+        console.log("MINUS")
         result.value -= parseFloat(current.value)
         current.value = "";
         break;
       case '*':
+        console.log("MULTIPLY")
         result.value *= parseFloat(current.value)
         current.value = "";
         break;
       case '/':
+        console.log("DEVIDE")
         if(current.value != 0){
           result.value /= parseFloat(current.value)
           current.value = "";
@@ -59,17 +69,16 @@ function handleButtonClick(button) {
         }
         break;
     }
-  
- console.log("Hi 5")
-  operand.value = button.value
+
+    operand.value = button.value
+    console.log("4 select operant")
     
   }
 
   if (button.value === '=') {
     operand.value =''
-    current.value = result.value.toFixed(5);
-    result.value = ''
-    
+    current.value = result.value;
+    result.value = ''   
   }
    
 }
