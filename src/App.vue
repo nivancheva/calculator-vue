@@ -40,31 +40,32 @@ function handleButtonClick(button) {
       result.value = parseFloat(current.value);
       current.value = ''
     }
-   
-    switch(operand.value) {
 
-      case '+':
-        result.value += parseFloat(current.value); 
-        current.value = '';
-        break;
-      case '-':
-        result.value -= parseFloat(current.value)
-        current.value = "";
-        break;
-      case '*':
-        result.value *= parseFloat(current.value)
-        current.value = "";
-        break;
-      case '/':
-        if(current.value != 0){
-          result.value /= parseFloat(current.value)
+    if (current.value) {
+      switch(operand.value) {
+        case '+':
+          result.value += parseFloat(current.value); 
+          current.value = '';
+          break;
+        case '-':
+          result.value -= parseFloat(current.value)
           current.value = "";
-        } else {
-          alert('Cannot divide by zero');
+          break;
+        case '*':
+          result.value *= parseFloat(current.value)
           current.value = "";
-          return;
-        }
-        break;
+          break;
+        case '/':
+          if(current.value != 0){
+            result.value /= parseFloat(current.value)
+            current.value = "";
+          } else {
+            alert('Cannot divide by zero');
+            current.value = "";
+            return;
+          }
+          break;
+      }
     }
 
     operand.value = button.value;
