@@ -47,6 +47,11 @@ function handleButtonClick(button) {
       operand.value = '';
   } else {
 
+    if (!current.value) {
+      current.value = 0;
+      result.value = 0;
+    }
+    
     if (operand.value == '') {
       result.value = parseFloat(current.value);
       current.value = ''
