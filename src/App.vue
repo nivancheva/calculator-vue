@@ -38,6 +38,7 @@ function handleButtonClick(button) {
     }
 
     current.value += button.value;
+    current.value = current.value[0] == "0" ? current.value.replace("0", ""):current.value;
 
   } else {
 
