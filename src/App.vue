@@ -103,7 +103,11 @@ function handleButtonClick(button) {
   </div>
   
   <div class="buttons">
-    <button :class="{ 'bg-red' : button.label === '='}" v-for="button in buttons" :key="button.value" @click="handleButtonClick(button)">
+    <button
+      :class="{ 'bg-red' : button.label === '='}"
+      v-for="button in buttons"
+      :key="button.value"
+      @click="handleButtonClick(button)">
       {{ button.label }}
     </button>
   </div>
