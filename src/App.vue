@@ -74,7 +74,7 @@ function handleButtonClick(button) {
   if (button.value === '=') {
     
     operand.value = '';
-    current.value = result.value;
+    current.value = Math.round(result.value * 100) / 100;
     result.value = '' ;
     calculated.value = true;
     
