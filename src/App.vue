@@ -21,8 +21,9 @@ const buttons = [
   { label: '-', value: '-' },
   { label: '0', value: 0 },
   { label: '\u2022', value: '.' },
-  { label: '=', value: '=' },
+  { label: 'C', value: 'C' },
   { label: '+', value: '+' },
+  { label: '=', value: '=' },
 ]
 
 function handleButtonClick(button) {
@@ -40,6 +41,10 @@ function handleButtonClick(button) {
     current.value += button.value;
     current.value = current.value[0] == "0" ? current.value.replace("0", ""):current.value;
 
+  } else if (button.value === "C") { 
+      current.value = '';
+      result.value = '';
+      operand.value = '';
   } else {
 
     if (operand.value == '') {
@@ -94,8 +99,7 @@ function handleButtonClick(button) {
 <div class="calculator">
   <div class="screen">
     <div class="pevious-operand">{{ result || ''}} {{ operand }}</div>
-    <div class="current-operand">{{ current || 0}}</div>
-  
+    <div class="current-operand">{{ current || 0}}</div>  
   </div>
   
   <div class="buttons">
@@ -173,6 +177,7 @@ button {
 .bg-red {
   background-color: rgb(248, 106, 111);
   color: white;
+  grid-column: span 4;
 }
 
 .bg-red:hover {
