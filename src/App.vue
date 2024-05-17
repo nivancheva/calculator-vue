@@ -29,8 +29,13 @@ function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
     if (calculated.value== true ) {
-      current.value = ''  
+      current.value = '' ;
     }
+
+    if (button.value === '.' && current.value.includes('.')) {
+      return;
+    }
+
     calculated.value = false;
     current.value += button.value;
 
@@ -48,16 +53,16 @@ function handleButtonClick(button) {
           current.value = '';
           break;
         case '-':
-          result.value -= parseFloat(current.value)
+          result.value -= parseFloat(current.value);
           current.value = "";
           break;
         case '*':
-          result.value *= parseFloat(current.value)
+          result.value *= parseFloat(current.value);
           current.value = "";
           break;
         case '/':
           if(current.value != 0){
-            result.value /= parseFloat(current.value)
+            result.value /= parseFloat(current.value);
             current.value = "";
           } else {
             alert('Cannot divide by zero');
