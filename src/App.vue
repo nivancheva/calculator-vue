@@ -28,15 +28,15 @@ const buttons = [
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
-    if (calculated.value== true ) {
+    if (calculated.value == true ) {
       current.value = '' ;
+      calculated.value = false;
     }
 
     if (button.value === '.' && current.value.includes('.')) {
       return;
     }
 
-    calculated.value = false;
     current.value += button.value;
 
   } else {
@@ -44,9 +44,7 @@ function handleButtonClick(button) {
     if (operand.value == '') {
       result.value = parseFloat(current.value);
       current.value = ''
-    }
-
-    if (current.value) {
+    } else if (current.value) {
       switch(operand.value) {
         case '+':
           result.value += parseFloat(current.value); 
