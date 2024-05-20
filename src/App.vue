@@ -26,25 +26,20 @@ const buttons = [
   { label: '=', value: '=' },
 ]
 
-function calc(event) {
-  console.log(event)
-}
-
-function handleButtonClick(button) {
-
-  if (typeof button.value  === "number" || button.value === '.') {
+function calculate(number) {
+  if (typeof number  === "number" || number === '.') {
     if (calculated.value == true ) {
       current.value = '' ;
       calculated.value = false;
     }
 
-    if (button.value === '.' && current.value.includes('.')) {
+    if (number === '.' && current.value.includes('.')) {
       return;
     }
 
-    current.value += button.value;
+    current.value += number;
   
-  } else if (button.value === "C") { 
+  } else if (number === "C") { 
       current.value = '';
       result.value = '';
       operand.value = '';
@@ -80,11 +75,11 @@ function handleButtonClick(button) {
       }
     }
 
-    operand.value = button.value;
+    operand.value = number;
     
   }
 
-  if (button.value === '=') {
+  if (number === '=') {
     
     operand.value = '';
     current.value = Math.round(result.value * 100) / 100;
@@ -92,14 +87,23 @@ function handleButtonClick(button) {
     calculated.value = true;
     
   }  
-   
+}
+
+function numberFromKeyboard(event) {
+  console.log(event);
+  calculate(parseInt(event.key));
+  
+}
+
+function numberFromKButton(button) {
+  calculate(button.value);
 }
 
 </script>
 
 <template>
 
-<div class="calculator" tabindex="0" @keydown="calc">
+<div class="calculator" tabindex="0" @keydown="numberFromKeyboard">
   <div class="screen">
     <div class="pevious-operand">{{ result || ''}} {{ operand }}</div>
     <div class="current-operand">{{ current || 0}}</div>  
@@ -110,7 +114,7 @@ function handleButtonClick(button) {
       :class="{ 'bg-red' : button.label === '='}"
       v-for="button in buttons"
       :key="button.value"
-      @click="handleButtonClick(button)">
+      @click="numberFromKButton(button)">
       {{ button.label }}
     </button>
   </div>
