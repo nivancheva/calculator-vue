@@ -39,19 +39,13 @@ function handleButtonClick(button) {
     }
 
     current.value += button.value;
-    current.value = current.value[0] == "0" ? current.value.replace("0", ""):current.value;
-
+  
   } else if (button.value === "C") { 
       current.value = '';
       result.value = '';
       operand.value = '';
   } else {
 
-    if (!current.value) {
-      current.value = 0;
-      result.value = 0;
-    }
-    
     if (operand.value == '') {
       result.value = parseFloat(current.value);
       current.value = ''
