@@ -7,19 +7,19 @@ const result = ref(0);
 const calculated = ref(false);
 
 const buttons = [
-  { label: '7', value: 7 },
-  { label: '8', value: 8 },
-  { label: '9', value: 9 },
+  { label: '7', value: "7" },
+  { label: '8', value: "8" },
+  { label: '9', value: "9" },
   { label: '\u00F7', value: '/' },
-  { label: '4', value: 4 },
-  { label: '5', value: 5 },
-  { label: '6', value: 6 },
+  { label: '4', value: "4" },
+  { label: '5', value: "5" },
+  { label: '6', value: "6" },
   { label: '\u00d7', value: '*' },
-  { label: '1', value: 1 },
-  { label: '2', value: 2 },
-  { label: '3', value: 3 },
+  { label: '1', value: "1" },
+  { label: '2', value: "2" },
+  { label: '3', value: "3" },
   { label: '-', value: '-' },
-  { label: '0', value: 0 },
+  { label: '0', value: "0" },
   { label: '\u2022', value: '.' },
   { label: 'C', value: 'C' },
   { label: '+', value: '+' },
@@ -27,7 +27,7 @@ const buttons = [
 ]
 
 function calculate(number) {
-  if (typeof number  === "number" || number === '.') {
+  if (!isNaN(number) || number === '.') {
     if (calculated.value == true ) {
       current.value = '' ;
       calculated.value = false;
@@ -90,11 +90,7 @@ function calculate(number) {
 }
 
 function numberFromKeyboard(event) {
-  if (event.key === "0" || event.key === "1" || event.key === "2" || event.key === "3" || event.key === "4" || event.key === "5" || event.key === "6" || event.key === "7" || event.key === "8" || event.key === "9") {
-    calculate(parseInt(event.key));
-  } else {
-    calculate(event.key);
-  }    
+  calculate(event.key);
 }
 
 function numberFromKButton(button) {
