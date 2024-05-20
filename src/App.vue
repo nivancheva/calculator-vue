@@ -26,6 +26,10 @@ const buttons = [
   { label: '=', value: '=' },
 ]
 
+function calc(event) {
+  console.log(event)
+}
+
 function handleButtonClick(button) {
 
   if (typeof button.value  === "number" || button.value === '.') {
@@ -95,7 +99,7 @@ function handleButtonClick(button) {
 
 <template>
 
-<div class="calculator">
+<div class="calculator" tabindex="0" @keydown="calc">
   <div class="screen">
     <div class="pevious-operand">{{ result || ''}} {{ operand }}</div>
     <div class="current-operand">{{ current || 0}}</div>  
