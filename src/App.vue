@@ -94,9 +94,7 @@ function numberFromKeyboard(event) {
     calculate(parseInt(event.key));
   } else {
     calculate(event.key);
-  }
-  
-  
+  }    
 }
 
 function numberFromKButton(button) {
