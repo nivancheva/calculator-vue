@@ -39,7 +39,7 @@ function calculate(number) {
 
     current.value += number;
   
-  } else if (number === "C") { 
+  } else if (number === "C" || number === 'Delete' || number === 'Backspace') { 
       current.value = '';
       result.value = '';
       operand.value = '';
@@ -79,7 +79,7 @@ function calculate(number) {
     
   }
 
-  if (number === '=') {
+  if (number === '=' || number === 'Enter') {
     
     operand.value = '';
     current.value = Math.round(result.value * 100) / 100;
@@ -90,8 +90,12 @@ function calculate(number) {
 }
 
 function numberFromKeyboard(event) {
-  console.log(event);
-  calculate(parseInt(event.key));
+  if (event.key === "0" || event.key === "1" || event.key === "2" || event.key === "3" || event.key === "4" || event.key === "5" || event.key === "6" || event.key === "7" || event.key === "8" || event.key === "9") {
+    calculate(parseInt(event.key));
+  } else {
+    calculate(event.key);
+  }
+  
   
 }
 
